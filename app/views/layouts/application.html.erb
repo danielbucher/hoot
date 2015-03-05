@@ -7,8 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <%= render 'shared/navigation' %>
 
-<%= yield %>
+  <div class="container">
+    <div class="row">
 
+      <!-- Uncomment for a side bar with 3 columns -->
+      <!--div id="sidebar" class="col-xs-3" -->
+      <!--/div-->
+
+      <!-- If using a side bar, change col-xs-12 to col-xs-9 -->
+      <div id="content" class="col-xs-12">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
