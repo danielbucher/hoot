@@ -1,7 +1,18 @@
 <nav class="navbar navbar-default" role="navigation">
-  <div class="container">
+  <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="/">Hoot</a>
     </div>
-  </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <% if user_signed_in? %>
+        <li><%= link_to("Sign out", destroy_user_session_path,
+              method: 'delete') %></li>
+        <% else %>
+        <li><%= link_to "Log in", new_session_path('user') %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>

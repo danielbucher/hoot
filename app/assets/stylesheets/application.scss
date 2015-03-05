@@ -1,2 +1,10 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ form.new_user input, form.edit_user input {
+   max-width: 200px;
+ }
+
+ form.new_user #user_remember_me, form.edit_user #user_remember_me {
+   margin-left: 0px;
+ }
