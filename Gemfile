@@ -56,4 +56,10 @@ end
 group :test do
   # Easier test writing
   gem "shoulda-matchers", "~> 2.8.0"
+
+  # Cucumber for acceptance tests
+  gem 'cucumber-rails', :require => false
+
+  # database_cleaner is not required, but highly recommended
+  gem 'database_cleaner'
 end
