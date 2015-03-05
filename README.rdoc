@@ -1,28 +1,33 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Hoot is a simple microblogging application, developed using Ruby on Rails
+version 4.2.0.
 
-Things you may want to cover:
+=== Development
 
 * Ruby version
+  * 2.2.0
 
 * System dependencies
-
-* Configuration
+  * Ruby version 2.2.0 or higher
+  * Rails 4.2.0
 
 * Database creation
 
+  This application comes with to sample database configuration files, one for
+  SQLite3 and one for PostgreSQL. Rename the one you intend on using to
+  config/database.yml and adapt if needed.
+
+  If you choose to use SQLite3, uncomment the 'sqlite3' gem on the Gemfile.
+
 * Database initialization
+
+    rake db:create
 
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+    rake
 
-* Deployment instructions
+=== Authors
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+  Daniel C. Bucher (daniel.bucher88 at gmail.com)
