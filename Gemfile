@@ -44,5 +44,16 @@ group :development, :test do
   gem 'spring'
 
   # RSpec for testing
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails', '~> 3.2.0'
+
+  # Mock framework
+  gem 'mocha', '~> 1.1.0'
+
+  # Fixtures made easy
+  gem 'factory_girl_rails', '~> 4.5.0'
+end
+
+group :test do
+  # Easier test writing
+  gem "shoulda-matchers", "~> 2.8.0"
 end
