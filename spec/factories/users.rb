@@ -4,7 +4,7 @@ FactoryGirl.define do
     name "Homer Simpson"
     email "homer@iloveduff.com"
     password "thisisastrongpassword"
-    user_name "homer"
+    username "homer"
     bio "Just a guy that likes beer and pizza."
   end
 

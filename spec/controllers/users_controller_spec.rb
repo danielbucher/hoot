@@ -6,8 +6,8 @@ RSpec.describe UsersController, type: :controller do
 
     context 'with existing user' do
       before :each do
-        User.expects(:find_by_user_name).with(user.user_name).returns(user)
-        get :home, user_name: user.user_name
+        User.expects(:find_by_username).with(user.username).returns(user)
+        get :home, username: user.username
       end
 
       it { is_expected.to respond_with(:success) }
@@ -16,8 +16,8 @@ RSpec.describe UsersController, type: :controller do
 
     context 'with non-existing user' do
       before :each do
-        User.expects(:find_by_user_name).with('moe').returns(nil)
-        get :home, user_name: 'moe'
+        User.expects(:find_by_username).with('moe').returns(nil)
+        get :home, username: 'moe'
       end
 
       it { is_expected.to respond_with(:redirect) }

@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:home]
 
   def home
-    @user = User.find_by_user_name(params[:user_name])
+    @user = User.find_by_username(params[:username])
 
     redirect_to controller: :home, action: :index unless @user
   end
