@@ -33,6 +33,9 @@ gem 'autoprefixer-rails'
 # Use devise for authentication
 gem 'devise'
 
+# User puma as web server
+gem 'puma'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -76,3 +79,5 @@ group :test do
   # Cucumber steps
   gem 'cucumber-websteps'
 end
+
+gem 'rails_12factor', group: :production
