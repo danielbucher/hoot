@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many  :posts, dependent: :destroy
+
   validates :email, :username, presence: true
   validates :email, :username, uniqueness: true
 
