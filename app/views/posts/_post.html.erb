@@ -1,19 +1,19 @@
-<div class="post">
+<div class="hoot">
   <div class="hoot-header">
     <span class="u-hoot-author-details">
-      <b><%= user["name"] %></b>
+      <b><%= post.author.name %></b>
       <span class="u-hoot-author-username">
-        <%= link_to "@#{user["username"]}", { controller: :users, action: :home,
-                username: user["username"]} %>
+        <%= link_to "@#{post.author.username}", { controller: :users, action: :home,
+                username: post.author.username} %>
       </span>
     </span>
 
     <span class="u-hoot-date">
-      <%= short_post_date(post["id"]) %>
+      <%= short_post_date(post.id) %>
     </span>
   </div>
 
   <div class="post-content">
-    <%= post["content"] %>
-  <div/>
-<div>
+    <%= post.content %>
+  </div>
+</div>

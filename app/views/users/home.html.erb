@@ -2,31 +2,28 @@
 <br/>
 
 <div class="container">
-<div class="row">
-  <div  class="col-xs-3">
-    <%= render 'user_info' %>
-  </div>
-
-  <div  class="col-xs-9">
-    <div id="new-hoot">
-      <%= form_tag({controller: :posts, action: :create }) do %>
-        <div class="form-group field">
-          <%= text_area_tag :content, " ",
-              class: "i-content form-control" %>
-        </div>
-
-        <div id="s-hoot">
-          <%= submit_tag "Hoot", class: 'btn btn-primary' %>
-        </div>
-      <% end %>
+  <div class="row">
+    <div  class="col-xs-3">
+      <%= render 'user_info' %>
     </div>
 
-    <div id="user-hoots">
-      <!-- <% @user.posts.all.each do |post| %>-->
-        <%= render partial: 'posts/post', locals: {post: post.attributes,
-                user: @user.attributes } %>
-      <!-- <% end %>-->
+    <div  class="col-xs-9">
+      <div id="new-hoot">
+        <%= form_tag({controller: :posts, action: :create }) do %>
+          <div class="form-group field">
+            <%= text_area_tag :content, " ",
+                class: "i-content form-control" %>
+          </div>
+
+          <div id="s-hoot">
+            <%= submit_tag "Hoot", class: 'btn btn-primary' %>
+          </div>
+        <% end %>
+      </div>
+
+      <div id="user-hoots">
+        <%= render @user.posts %>
+      </div>
     </div>
   </div>
-</div>
 </div>
