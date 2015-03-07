@@ -1,5 +1,6 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import "*";
 
  body {
    background-color: #f5eedf;
@@ -30,9 +31,4 @@
 
  form.new_user #user_remember_me, form.edit_user #user_remember_me {
    margin-left: 0px;
- }
-
- .lnk-edit-profile {
-   margin-bottom: 12px;
-   font-size: medium;
  }
