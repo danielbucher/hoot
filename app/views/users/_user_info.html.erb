@@ -1,0 +1,9 @@
+<div id="user-info">
+  <div id="tmp-image" style="height: 160px; width: 160px; margin: 3px;
+      border-style: solid; border-width: 1px;">
+    <p>Image will come here...</p>
+  </div>
+  <p><%= link_to "@#{@user.username}", { controller: :users, action: :home,
+            username: @user.username } %></p>
+  <p><%= mail_to @user.email %></p>
+</div>

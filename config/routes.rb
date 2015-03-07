@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  # User homepage
   get '@:username', controller: 'users', action: 'home'
+
+  # Create post on user homepage
+  post '@:username/post', controller: 'posts', action: 'create'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

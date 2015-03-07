@@ -1,3 +1,50 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ .lnk-edit-profile {
+   margin-bottom: 12px;
+   font-size: medium;
+ }
+
+ #new-hoot {
+   width: 500px;
+   border-radius: 5px;
+   padding: 5px 5px 20px;
+ }
+
+ .i-content {
+   max-height: 240px;
+   min-height: 80px;
+   width: 490px;
+   resize: none;
+ }
+
+ #s-hoot {
+   min-height: 50px;
+   padding: 0px 0px 10px;
+ }
+
+ #s-hoot input {
+   float: right;
+ }
+
+ #user-hoots {
+   width: 500px;
+   border-radius: 5px;
+   padding: 5px 5px 20px;
+ }
+
+ .hoot-header {
+   min-height: 25px;
+   padding-bottom: 5px;
+ }
+
+ .u-hoot-date {
+   font-size: small;
+   float: right;
+ }
+
+ .post-content {
+   min-height: 200px;
+ }
