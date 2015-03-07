@@ -1,6 +1,29 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ body {
+   background-color: #f5eedf;
+ }
+
+ .navbar-hoot {
+   background: #594c2d;
+   border: 0px solid;
+   border-radius: 0px;
+ }
+
+ .navbar-default .navbar-brand {
+   color: #ffeeb4;
+ }
+
+ .navbar-hoot .navbar-nav > li > a {
+   color: #ffeeb4;
+ }
+
+ .navbar-hoot .navbar-nav > li:hover a {
+   background: #2c240f;
+   color: #fff;
+ }
+
  form.new_user input, form.edit_user input {
    max-width: 200px;
  }
