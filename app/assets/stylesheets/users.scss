@@ -8,15 +8,14 @@
  }
 
  #new-hoot {
-   width: 500px;
    border-radius: 5px;
-   padding: 5px 5px 20px;
+   padding: 10px 5px 20px;
+   border-bottom: 1px solid #e1e8ed;
  }
 
  .i-content {
    max-height: 240px;
    min-height: 80px;
-   width: 490px;
    resize: none;
  }
 
@@ -30,7 +29,6 @@
  }
 
  #user-hoots {
-   width: 500px;
    border-radius: 5px;
    padding: 5px 5px 20px;
  }
@@ -53,4 +51,24 @@
  .post-content {
    margin-top: 2px;
    min-height: 60px;
+ }
+
+ #user-info {
+   border: 1px solid #e1e8ed;
+   background: #fff;
+   border-radius: 6px;
+   padding: 10px 10px 15px;
+ }
+
+ .user-content {
+   border: 1px solid #e1e8ed;
+   background: #fff;
+   border-radius: 6px;
+ }
+
+ .user-suggestions {
+   border: 1px solid #e1e8ed;
+   background: #fff;
+   border-radius: 6px;
+   padding: 10px 10px 15px;
  }
