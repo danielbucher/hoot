@@ -36,6 +36,9 @@ gem 'devise'
 # User puma as web server
 gem 'puma'
 
+# auto_link for url parsing
+gem 'rails_autolink'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
