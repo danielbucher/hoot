@@ -3,6 +3,7 @@
       border-style: solid; border-width: 1px;">
     <p>Image will come here...</p>
   </div>
+  <p><%= link_to "(Edit profile)", edit_user_registration_path() %></p>
   <p><%= link_to "@#{@user.username}", { controller: :users, action: :home,
             username: @user.username } %></p>
   <p><%= mail_to @user.email %></p>

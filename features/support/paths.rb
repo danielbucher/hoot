@@ -18,6 +18,13 @@ module NavigationHelpers
     when /^the failed to sign up page$/
       '/users'
 
+    when /^the sign in page$/
+      '/users/sign_in'
+
+    when /^(.*)'s profile page$/i
+      url_for(controller: :users, action: :home, username: $1)
+
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
