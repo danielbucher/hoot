@@ -8,7 +8,7 @@
       <div id="new-hoot">
         <%= form_tag({controller: :posts, action: :create }, remote: true) do %>
           <div class="form-group field">
-            <%= text_area_tag :content, " ",
+            <%= text_area_tag :content, "What's going on?",
                 class: "i-content form-control" %>
           </div>
 
