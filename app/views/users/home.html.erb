@@ -6,7 +6,7 @@
 
     <div  class="col-xs-6 user-content">
       <div id="new-hoot">
-        <%= form_tag({controller: :posts, action: :create }) do %>
+        <%= form_tag({controller: :posts, action: :create }, remote: true) do %>
           <div class="form-group field">
             <%= text_area_tag :content, " ",
                 class: "i-content form-control" %>
