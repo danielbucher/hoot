@@ -2,8 +2,11 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
+ready = ->
   $(".i-content").focus ->
     $(".i-content").val("")
     $(".i-content").css("color", "#555555")
     $('.i-content').simplyCountable(counter: '#hoot-counter')
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
