@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!
 
   def index
+    @posts = Post.recent(10)
   end
 end
