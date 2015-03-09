@@ -7,6 +7,7 @@ RSpec.describe Post, type: :model do
     it { is_expected.to validate_presence_of(:content) }
     it { should validate_length_of(:content).is_at_most(140) }
     it { should belong_to(:author) }
+    it { should have_and_belong_to_many(:hashtags) }
   end
 
   context 'ordering' do
