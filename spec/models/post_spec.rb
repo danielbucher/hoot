@@ -10,6 +10,18 @@ RSpec.describe Post, type: :model do
     it { should have_and_belong_to_many(:hashtags) }
   end
 
+  context 'creation' do
+    let(:user) { FactoryGirl.create(:user) }
+
+    it 'should detect hashtag' do
+      post = user.posts.create(content: "I'm going to #moes! #Bye")
+
+      expect(post.hashtags.size).to eq(2)
+      expect(post.hashtags[0].content).to eq("#moes")
+      expect(post.hashtags[1].content).to eq("#bye")
+    end
+  end
+
   context 'ordering' do
     let(:user) { FactoryGirl.create(:user) }
 
@@ -21,6 +33,5 @@ RSpec.describe Post, type: :model do
       expect(recent_posts.first.content).to eq("Bye!")
       expect(recent_posts.second.content).to eq("Hello!")
     end
-
   end
 end

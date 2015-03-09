@@ -5,5 +5,20 @@ class Post < ActiveRecord::Base
   validates :content, length: { maximum: 140 }
   validates :content, presence: true
 
+  after_create do
+    auto_create_hashtags
+  end
+
   scope :recent, ->(size) { order(updated_at: :desc).limit(size) }
+
+  def auto_create_hashtags
+    self.detected_hashtags.each do |tag|
+      hashtag = Hashtag.update_or_create(tag)
+      self.hashtags << hashtag
+    end
+  end
+
+  def detected_hashtags
+    hashtags = self.content.scan(/#+\w+/)
+  end
 end

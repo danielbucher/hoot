@@ -9,11 +9,15 @@ class Hashtag < ActiveRecord::Base
     self.content.downcase!
   end
 
+  before_update do
+    self.content.downcase!
+  end
+
   def self.update_or_create(content)
     begin
-      Hashtag.create!(content: content)
+      Hashtag.create!(content: content.downcase)
     rescue ActiveRecord::RecordInvalid
-      Hashtag.find_by_content(content).update!(content: content)
+      Hashtag.find_by_content(content.downcase)
     end
   end
 end
