@@ -4,7 +4,7 @@ RSpec.describe HomeController, type: :controller do
   describe 'index' do
     let(:user) { FactoryGirl.create(:user) }
 
-    context 'with existing hoots' do
+    context 'with hoots' do
       let(:first_post) { user.posts.create(FactoryGirl.attributes_for(:post)) }
       let(:second_post) { user.posts.create(FactoryGirl.attributes_for(:another_post)) }
 

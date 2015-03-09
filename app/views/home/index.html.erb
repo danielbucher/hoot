@@ -1,3 +1,41 @@
-<h1> Welcome to Hoot </h1>
+<div class="container">
+  <div class="row">
+    <div  class="col-xs-3">
+      <div class="home-user-info">
+        <p>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam eget
+          ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa.
+          Pellentesque habitant morbi tristique senectus et netus et malesuada
+          fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor et,
+          sagittis ac, posuere eu, lectus. Nam mattis, felis ut adipiscing.
+        </p>
+      </div>
+    </div>
 
-<p>Content will be avaiable soon...</p>
+    <div  class="col-xs-6 home-content">
+      <div class="content-title">
+        <h3>World Content</h3><br/>
+      </div>
+      
+      <% if @posts.empty? %>
+        <%= render 'no_hoots' %>
+      <% else %>
+        <div id="home-hoots">
+          <%= render @posts %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-xs-3">
+      <div class="home-user-suggestions">
+        <p>
+          Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Etiam eget
+          ligula eu lectus lobortis condimentum. Aliquam nonummy auctor massa.
+          Pellentesque habitant morbi tristique senectus et netus et malesuada
+          fames ac turpis egestas. Nulla at risus. Quisque purus magna, auctor et,
+          sagittis ac, posuere eu, lectus. Nam mattis, felis ut adipiscing.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
