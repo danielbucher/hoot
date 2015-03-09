@@ -26,5 +26,12 @@ RSpec.describe Hashtag, type: :model do
 
       expect(Hashtag.where(content: "#something").count).to eq(1)
     end
+
+    it 'should downcase content' do
+      Hashtag.update_or_create("#FuN")
+
+      expect(Hashtag.find_by_content("#FuN")).to be_nil
+      expect(Hashtag.find_by_content("#fun")).not_to be_nil
+    end
   end
 end

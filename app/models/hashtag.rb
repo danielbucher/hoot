@@ -5,6 +5,10 @@ class Hashtag < ActiveRecord::Base
   validates :content, presence: true
   validates :content, uniqueness: true
 
+  before_create do
+    self.content.downcase!
+  end
+
   def self.update_or_create(content)
     begin
       Hashtag.create!(content: content)
