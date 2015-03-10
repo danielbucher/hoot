@@ -1,0 +1,22 @@
+<div id="sign-in" class="content-left">
+<%= form_for(User.new, as: :user, url: session_path(:user)) do |f| %>
+  <div class=" form-group field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, class: "form-control" %>
+  </div>
+
+  <div class="form-group field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+  </div>
+
+  <div class="checkbox field">
+    <%= f.check_box :remember_me %>
+    <%= f.label :remember_me %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Log in", class: 'btn btn-primary' %>
+  </div>
+<% end %>
+</div>
