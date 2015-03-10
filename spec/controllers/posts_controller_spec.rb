@@ -53,7 +53,7 @@ RSpec.describe PostsController, type: :controller do
     before :each do
       Post.expects(:with_tag).with('#moe').returns([post])
 
-      get :with_tag, hashtag: '#moe'
+      get :with_tag, hashtag: 'moe'
     end
 
     it { is_expected.to respond_with(:success) }

@@ -24,7 +24,7 @@ class PostsController < ApplicationController
   end
 
   def with_tag
-    @posts = Post.with_tag(params[:hashtag].downcase)
+    @posts = Post.with_tag("\##{params[:hashtag]}".downcase)
 
     render :index
   end

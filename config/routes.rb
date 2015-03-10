@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '@:username/post', controller: 'posts', action: 'create'
 
   # Retrieves all posts with given hashtag
-  get 'posts/:hashtag', controller: 'posts', action: 'with_tag'
+  get 'hashtag/:hashtag', controller: 'posts', action: 'with_tag'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

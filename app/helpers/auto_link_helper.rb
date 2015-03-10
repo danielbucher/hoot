@@ -137,7 +137,7 @@ module AutoLinkHelper
   def auto_link_hashtags(text, html_options = {}, options = {})
     text.gsub(AUTO_HASHTAG) do
       text = $&
-      link_to text, { controller: :posts, action: :with_tag, hashtag: text }
+      link_to text, { controller: :posts, action: :with_tag, hashtag: text.gsub("\#", "") }
     end
   end
 
