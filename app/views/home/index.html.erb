@@ -1,29 +1,25 @@
-<div class="container">
-  <div class="row">
-    <div  class="col-xs-3">
-      <% if user_signed_in? %>
-        <%= render partial: 'users/user_info', locals: { user: current_user } %>
-      <% else %>
-        <%= render partial: 'shared/sign_in' %>
-      <% end %>
-    </div>
+<div class="row">
+  <div  class="col-xs-12 col-md-3">
+    <% if user_signed_in? %>
+      <%= render partial: 'users/user_info', locals: { user: current_user } %>
+    <% else %>
+      <%= render partial: 'shared/sign_in' %>
+    <% end %>
+  </div>
 
-    <div  class="col-xs-6 home-content">
-      <div class="content-title">
-        <h3>World Content</h3><br/>
+  <div  id="world-content" class="col-xs-12 col-md-6 content-mid">
+    <h2>World Content</h2>
+
+    <% if @posts.empty? %>
+      <%= render 'no_hoots' %>
+    <% else %>
+      <div id="home-hoots" class="hoots">
+        <%= render @posts %>
       </div>
+    <% end %>
+  </div>
 
-      <% if @posts.empty? %>
-        <%= render 'no_hoots' %>
-      <% else %>
-        <div id="home-hoots">
-          <%= render @posts %>
-        </div>
-      <% end %>
-    </div>
-
-    <div class="col-xs-3">
-      <%= render partial: 'shared/info' %>
-    </div>
+  <div class="col-xs-12 col-md-3">
+    <%= render partial: 'shared/info' %>
   </div>
 </div>

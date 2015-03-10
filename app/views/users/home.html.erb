@@ -1,22 +1,21 @@
-<div class="container">
-  <div class="row">
-    <div  class="col-xs-3">
-      <%= render partial: 'user_info', locals: { user: @user } %>
-    </div>
+<div class="row">
+  <div  class="col-xs-12 col-md-3">
+    <%= render partial: 'user_info', locals: { user: @user } %>
+  </div>
 
-    <div  class="col-xs-6 user-content">
-      <h3><%= "@#{@user.username}\'s Hoots" %></h3>
-      <% if user_signed_in? && @user == current_user %>
-        <%= render 'new_hoot.html.erb' %>
-      <% end %>
+  <div  id="user-content" class="col-xs-12 col-md-6 content-mid">
+    <h2><%= "@#{@user.username}\'s Hoots" %></h2>
 
-      <div id="user-hoots">
-        <%= render @posts %>
-      </div>
-    </div>
+    <% if user_signed_in? && @user == current_user %>
+      <%= render 'new_hoot.html.erb' %>
+    <% end %>
 
-    <div class="col-xs-3">
-      <%= render partial: 'shared/info' %>
+    <div id="user-hoots" class="hoots">
+      <%= render @posts %>
     </div>
+  </div>
+
+  <div class="col-xs-12 col-md-3">
+    <%= render partial: 'shared/info' %>
   </div>
 </div>

@@ -34,8 +34,7 @@
    color: #8899a6;
  }
 
-
- #user-hoots {
+ .hoots {
    border-radius: 5px;
    padding: 5px 5px 20px;
  }
@@ -58,17 +57,4 @@
  .post-content {
    margin-top: 2px;
    min-height: 60px;
- }
-
- .user-content {
-   border: 1px solid #e1e8ed;
-   background: #fff;
-   border-radius: 6px;
- }
-
- .user-suggestions {
-   border: 1px solid #e1e8ed;
-   background: #fff;
-   border-radius: 6px;
-   padding: 10px 10px 15px;
  }

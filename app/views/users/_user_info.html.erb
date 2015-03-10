@@ -1,7 +1,7 @@
 <div id="user-info" class="content-left">
   <h3><%= link_to "@#{user.username}", { controller: :users, action: :home,
             username: (user.username) } %></h3>
-  <%= image_tag('owl-avatar.png') %>
+  <%= image_tag('owl-avatar.png', class: 'img-responsive') %>
   <% if user == current_user %>
     <p><%= link_to "(Edit profile)", edit_user_registration_path() %></p>
   <% end %>

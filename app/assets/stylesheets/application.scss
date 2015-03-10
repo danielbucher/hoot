@@ -46,13 +46,23 @@
    margin-left: 0px;
  }
 
- .content-left h3, .content-right h3 {
-   margin-top: 15px;
- }
-
   .content-left, .content-right {
     border: 1px solid #e1e8ed;
     background: #fff;
     border-radius: 6px;
     padding: 5px 10px 15px 20px;
+  }
+
+  .content-left h3, .content-right h3 {
+    margin-top: 15px;
+  }
+
+  .content-mid {
+    border: 1px solid #e1e8ed;
+    background: #fff;
+    border-radius: 6px;
+  }
+
+  .content-mid h2 {
+    margin: 20px 15px 30px;
   }
