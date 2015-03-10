@@ -4,6 +4,11 @@ class UsersController < ApplicationController
   def home
     @user = User.find_by_username(params[:username])
 
-    redirect_to controller: :home, action: :index unless @user
+    if @user
+      @posts = @user.posts.recent(100)
+    else
+      render(:file => File.join(Rails.root, 'public/404.html'),
+        :status => 404, :layout => false) unless @user
+    end
   end
 end

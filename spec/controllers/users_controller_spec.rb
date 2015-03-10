@@ -20,7 +20,7 @@ RSpec.describe UsersController, type: :controller do
         get :home, username: 'moe'
       end
 
-      it { is_expected.to respond_with(:redirect) }
+      it { is_expected.to respond_with(404) }
     end
   end
 end
