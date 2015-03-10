@@ -25,6 +25,14 @@
    color: #fff;
  }
 
+ #error_explanation {
+   padding: 15px;
+   margin-bottom: 20px;
+   border: 1px solid transparent;
+   border-radius: 4px;
+   background-color: #f2dede;
+ }
+
  form.new_user input, form.edit_user input {
    max-width: 200px;
  }
