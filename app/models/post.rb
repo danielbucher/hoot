@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
 
   def auto_create_hashtags
     self.detected_hashtags.each do |tag|
-      hashtag = Hashtag.update_or_create(tag)
+      hashtag = Hashtag.find_or_create_by(content: tag.downcase)
       self.hashtags << hashtag
     end
   end

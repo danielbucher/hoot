@@ -21,14 +21,14 @@ RSpec.describe Hashtag, type: :model do
     end
 
     it 'should update or create hashtags' do
-      Hashtag.update_or_create("#something")
-      Hashtag.update_or_create("#something")
+      Hashtag.find_or_create_by(content: "#something")
+      Hashtag.find_or_create_by(content: "#something")
 
       expect(Hashtag.where(content: "#something").count).to eq(1)
     end
 
     it 'should downcase content' do
-      Hashtag.update_or_create("#FuN")
+      Hashtag.find_or_create_by(content: "#FuN")
 
       expect(Hashtag.find_by_content("#FuN")).to be_nil
       expect(Hashtag.find_by_content("#fun")).not_to be_nil
