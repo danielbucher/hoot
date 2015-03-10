@@ -4,31 +4,46 @@ RSpec.describe PostsController, type: :controller do
   describe 'create' do
     let(:user) { FactoryGirl.create(:user) }
 
-      context 'with proper content' do
-        let(:hoot) { FactoryGirl.build(:hoot_with_author) }
+    before do
+      sign_in user
+    end
 
-        before :each do
-          User.expects(:find_by_username).with(user.username).returns(user)
-          Post.any_instance.expects(:save).returns(true)
+    context 'with proper content' do
+      let(:hoot) { FactoryGirl.build(:hoot_with_author) }
 
-          post :create, content: hoot.content, username: user.username
-        end
+      before :each do
+        User.expects(:find_by_username).with(user.username).returns(user)
+        Post.any_instance.expects(:save).returns(true)
 
-        it { is_expected.to respond_with(:redirect) }
+        post :create, content: hoot.content, username: user.username
       end
 
-      context 'with proper content' do
-        let(:hoot) { FactoryGirl.build(:hoot_with_author) }
+      it { is_expected.to respond_with(:redirect) }
+    end
 
-        before :each do
-          User.expects(:find_by_username).with(user.username).returns(user)
-          Post.any_instance.expects(:save).returns(false)
+    context 'without proper content' do
+      let(:hoot) { FactoryGirl.build(:hoot_with_author) }
 
-          post :create, content: '', username: user.username
-        end
+      before :each do
+        User.expects(:find_by_username).with(user.username).returns(user)
+        Post.any_instance.expects(:save).returns(false)
 
-        it { is_expected.to respond_with(:redirect) }
+        post :create, content: '', username: user.username
       end
+
+      it { is_expected.to respond_with(:redirect) }
+    end
+
+    context 'on another user\'s page' do
+      let(:hoot) { FactoryGirl.build(:hoot) }
+      let(:moe)  { FactoryGirl.create(:moe) }
+
+      before :each do
+        post :create, content: '', username: moe.username
+      end
+
+      it { is_expected.to respond_with(403) }
+    end
   end
 
   describe 'with_tag' do

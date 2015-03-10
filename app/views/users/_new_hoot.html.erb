@@ -1,0 +1,15 @@
+<div id="new-hoot">
+  <%= form_tag({controller: :posts, action: :create }, remote: true) do %>
+    <div class="form-group field">
+      <%= text_area_tag :content, "What's going on?",
+          class: "i-content form-control" %>
+    </div>
+
+    <div id="s-hoot">
+      <div id="s-hoot-right">
+        <span id="hoot-counter">140</span>
+        <%= submit_tag "Hoot", class: 'btn btn-primary' %>
+      </div>
+    </div>
+  <% end %>
+</div>
