@@ -41,11 +41,11 @@
    margin-left: 0px;
  }
 
- .content-left h3 {
-   margin-top: 3px;
+ .content-left h3, .content-right h3 {
+   margin-top: 15px;
  }
 
-  .content-left {
+  .content-left, .content-right {
     border: 1px solid #e1e8ed;
     background: #fff;
     border-radius: 6px;
