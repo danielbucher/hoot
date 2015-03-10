@@ -5,6 +5,7 @@
     </div>
 
     <div  class="col-xs-6 user-content">
+      <h3><%= "@#{@user.username}\'s Hoots" %></h3>
       <% if user_signed_in? && @user == current_user %>
         <%= render 'new_hoot.html.erb' %>
       <% end %>
