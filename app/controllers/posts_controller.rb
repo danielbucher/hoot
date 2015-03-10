@@ -17,6 +17,12 @@ class PostsController < ApplicationController
     end
   end
 
+  def with_tag
+    @posts = Post.with_tag(params[:hashtag].downcase)
+
+    render :index
+  end
+
   private
 
   # Never trust parameters from the scary internet, only allow the white list through.

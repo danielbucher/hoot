@@ -30,4 +30,18 @@ RSpec.describe PostsController, type: :controller do
         it { is_expected.to respond_with(:redirect) }
       end
   end
+
+  describe 'with_tag' do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:post) { user.posts.create(FactoryGirl.attributes_for(:post)) }
+
+    before :each do
+      Post.expects(:with_tag).with('#moe').returns([post])
+
+      get :with_tag, hashtag: '#moe'
+    end
+
+    it { is_expected.to respond_with(:success) }
+    it { expect(assigns(:posts)).to match_array([post])}
+  end
 end
