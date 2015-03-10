@@ -2,6 +2,9 @@
   <h3><%= link_to "@#{user.username}", { controller: :users, action: :home,
             username: (user.username) } %></h3>
   <%= image_tag('owl-avatar.png') %>
-  <p><%= link_to "(Edit profile)", edit_user_registration_path() %></p>
+  <% if user == current_user %>
+    <p><%= link_to "(Edit profile)", edit_user_registration_path() %></p>
+  <% end %>
+  <br/><br/>
   <p><b><%= user.name %></b></p>
 </div>
