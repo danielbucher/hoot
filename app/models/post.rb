@@ -10,6 +10,9 @@ class Post < ActiveRecord::Base
   end
 
   scope :recent, ->(size) { order(updated_at: :desc).limit(size) }
+  scope :with_tag, ->(hashtag) { joins(:hashtags).
+                                    where('hashtags.content' => hashtag).
+                                    recent(100) }
 
   def auto_create_hashtags
     self.detected_hashtags.each do |tag|

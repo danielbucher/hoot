@@ -34,4 +34,18 @@ RSpec.describe Post, type: :model do
       expect(recent_posts.second.content).to eq("Hello!")
     end
   end
+
+  context 'searching' do
+    let(:user) { FactoryGirl.create(:user) }
+
+    it 'should find all posts with given tag' do
+      user.posts.create(content: "This is a #post!")
+      user.posts.create(content: "This is anoter #Post with #tags in it")
+      posts_with_tag = Post.with_tag("#post")
+
+      expect(posts_with_tag[0].content).to eq ("This is anoter #Post with #tags in it")
+      expect(posts_with_tag[1].content).to eq ("This is a #post!")      
+    end
+  end
+
 end
