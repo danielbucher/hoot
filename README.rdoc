@@ -46,9 +46,10 @@ with this program. If not, see <www.gnu.org/licenses/>.
 
 === Authors
 
-  Daniel C. Bucher (daniel.bucher88 at gmail.com)
+Daniel C. Bucher {@danielbucher}[https://github.com/danielbucher] (daniel.bucher88 at gmail.com)
 
 === Acknowledgments
 
-  Lucas Ferreira (bioinfolucas at gmail.com) for logos and icons on the
-  application.
+Lucas Ferreira (bioinfolucas at gmail.com) for logos and icons on the application.
+
+Luiz Rocha {@lsdr}[https://github.com/lsdr]
