@@ -9,7 +9,7 @@ class Post < ActiveRecord::Base
     auto_create_hashtags
   end
 
-  scope :recent, ->(size) { order(updated_at: :desc).limit(size) }
+  scope :recent, ->(*size) { size.nil? ? order(updated_at: :desc).limit(size) :  order(updated_at: :desc)}
   scope :with_tag, ->(hashtag) { joins(:hashtags).
                                     where('hashtags.content' => hashtag).
                                     recent(100) }
