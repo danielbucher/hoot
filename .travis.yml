@@ -1,0 +1,11 @@
+language: ruby
+rvm:
+  - 2.2.0
+
+before_script:
+  - psql -c 'create database hoot_test;' -U postgres
+  - cp config/database.yml.postgresql.sample config/database.yml
+  - bundle exec rake db:migrate
+
+addons:
+  postgresql: "9.3"
