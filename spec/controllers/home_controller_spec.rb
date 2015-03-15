@@ -9,7 +9,7 @@ RSpec.describe HomeController, type: :controller do
       let(:second_post) { user.posts.create(FactoryGirl.attributes_for(:another_post)) }
 
       before :each do
-        Post.expects(:recent).with(10).returns([second_post, first_post])
+        Post.expects(:recent).returns([second_post, first_post])
         get :index
       end
 
