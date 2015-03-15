@@ -33,7 +33,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id].to_i)
-    @post.destroy
+    @post.destroy if @post.author == current_user
 
     redirect_to session[:current_page]
   end

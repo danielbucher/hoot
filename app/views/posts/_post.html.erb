@@ -6,9 +6,16 @@
         <%= link_to "@#{post.author.username}", { controller: :users, action: :home,
                 username: post.author.username} %>
       </span>
+      <% if user_signed_in? && post.author == current_user %>
+      <span class="u-hoot-destroy">
+        <%= link_to '', { controller: :posts, action: :destroy, id: post.id },
+        method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash' %>
+      </span>
+      <% end %>
     </span>
 
     <span class="u-hoot-date">
+
       <%= short_post_date(post.id) %>
     </span>
   </div>
