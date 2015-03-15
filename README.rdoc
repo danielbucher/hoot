@@ -1,3 +1,4 @@
+{<img alt='Stories in Ready' src='https://badge.waffle.io/danielbucher/hoot.png?label=ready&title=Ready' />}[https://waffle.io/danielbucher/hoot]
 == README
 
 Hoot is a simple microblogging application, developed using Ruby on Rails
