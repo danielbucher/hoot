@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:create]
+  before_action :store_current_page, only: [:destroy]
+  after_action :clear_current_page, only: [:destroy]
+  before_action :authenticate_user!, only: [:create, :destroy]
 
   def create
     @user = User.find_by_username(params[:username])
@@ -29,10 +31,25 @@ class PostsController < ApplicationController
     render :index
   end
 
+  def destroy
+    @post = Post.find(params[:id].to_i)
+    @post.destroy
+
+    redirect_to session[:current_page]
+  end
+
   private
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
     params.require(:post).permit(:content)
+  end
+
+  def store_current_page
+    session[:current_page] = request.referrer || root_path
+  end
+
+  def clear_current_page
+    session.delete(:current_page)
   end
 end

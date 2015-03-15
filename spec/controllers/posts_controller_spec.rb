@@ -59,4 +59,22 @@ RSpec.describe PostsController, type: :controller do
     it { is_expected.to respond_with(:success) }
     it { expect(assigns(:posts)).to match_array([post])}
   end
+
+  describe 'destroy' do
+    let(:user) { FactoryGirl.create(:user) }
+    let(:post) { user.posts.create(FactoryGirl.attributes_for(:post)) }
+
+    before do
+      sign_in user
+    end
+
+    before :each do
+      Post.expects(:find).with(post.id).returns(post)
+      post.expects(:destroy)
+
+      delete :destroy, id: post.id
+    end
+
+    it { is_expected.to respond_with(:redirect) }
+  end
 end

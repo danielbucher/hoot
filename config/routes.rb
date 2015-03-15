@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # Create post on user homepage
   post '@:username/post', controller: 'posts', action: 'create'
 
+  # Delete post
+  delete 'posts/:id', controller: 'posts', action: 'destroy'
+
   # Retrieves all posts with given hashtag
   get 'hashtag/:hashtag', controller: 'posts', action: 'with_tag'
 
