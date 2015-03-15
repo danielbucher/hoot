@@ -9,6 +9,12 @@ class Post < ActiveRecord::Base
     auto_create_hashtags
   end
 
+  before_destroy do
+    self.hashtags.each do |tag|
+      tag.destroy if ( tag.posts.count == 1 && tag.posts[0] == self )
+    end
+  end
+
   scope :recent, ->(*size) { size.nil? ? order(updated_at: :desc).limit(size) :  order(updated_at: :desc)}
   scope :with_tag, ->(hashtag) { joins(:hashtags).
                                     where('hashtags.content' => hashtag).

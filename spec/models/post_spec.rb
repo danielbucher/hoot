@@ -10,9 +10,9 @@ RSpec.describe Post, type: :model do
     it { should have_and_belong_to_many(:hashtags) }
   end
 
-  context 'creation' do
-    let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryGirl.create(:user) }
 
+  context 'creation' do
     it 'should detect hashtag' do
       post = user.posts.create(content: "I'm going to #moes! #Bye")
 
@@ -23,8 +23,6 @@ RSpec.describe Post, type: :model do
   end
 
   context 'ordering' do
-    let(:user) { FactoryGirl.create(:user) }
-
     it 'should order by most recent' do
       user.posts.create(content: "Hello!")
       user.posts.create(content: "Bye!")
@@ -36,16 +34,26 @@ RSpec.describe Post, type: :model do
   end
 
   context 'searching' do
-    let(:user) { FactoryGirl.create(:user) }
-
     it 'should find all posts with given tag' do
       user.posts.create(content: "This is a #post!")
       user.posts.create(content: "This is anoter #Post with #tags in it")
       posts_with_tag = Post.with_tag("#post")
 
       expect(posts_with_tag[0].content).to eq ("This is anoter #Post with #tags in it")
-      expect(posts_with_tag[1].content).to eq ("This is a #post!")      
+      expect(posts_with_tag[1].content).to eq ("This is a #post!")
     end
   end
 
+  context 'deletion' do
+    it 'should destroy a post' do
+      post = user.posts.create(FactoryGirl.attributes_for(:post))
+
+      expect(Hashtag.find_by_content("#moe")).not_to be_nil
+      post.destroy
+      user.reload
+
+      expect(user.posts).to be_empty
+      expect(Hashtag.find_by_content("#moe")).to be_nil
+    end
+  end
 end
